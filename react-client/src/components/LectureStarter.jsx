@@ -35,11 +35,12 @@ class LectureStarter extends React.Component {
       <div className="text-center">
         START AN EXISTING LECTURE
         <div className="col-xs-12 text-center">
-          {this.state.lectures.map((lecture)=>{
+          {this.state.lectures.map((lecture, i)=>{
             return (
               <div
                 className="btn btn-sm btn-normal text-center"
-                onClick={this.onLectureStart.bind(this)}>
+                onClick={this.onLectureStart.bind(this)}
+                key={i}>
                 {lecture}
               </div>
             )
