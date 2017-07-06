@@ -21,11 +21,6 @@ class LectureCreator extends React.Component {
     };
   }
 
-  // handleChange(event) {
-  //   this.setState({
-  //     name: event.target.value
-  //   });
-  // }
 
   onLectureSave() {
     this.setState({ showInput: false, showAskForMCQ: true });
@@ -52,7 +47,11 @@ class LectureCreator extends React.Component {
         return newState;
       })
     }
-    console.log(this.state)
+  }
+
+  lectureHandleChange(event) {
+    event.persist();
+    this.setState({ name: event.target.value })
   }
 
   render() {
@@ -67,7 +66,7 @@ class LectureCreator extends React.Component {
                 className="form-control"
                 value={this.state.name}
                 placeholder="Enter lecture name"
-                onChange={this.handleChange.bind(this)}
+                onChange={this.lectureHandleChange.bind(this)}
               />
               : this.state.showAskForMCQ === true
                 ? <div
