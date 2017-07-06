@@ -30,17 +30,16 @@ class LectureStarter extends React.Component {
     })
   }
 
-  render() {
-    return (
-      <div>
+	render () {
+  	return (
+      <div className="text-center">
         START AN EXISTING LECTURE
-        <div className="col-xs-3 text-center">
-          {this.state.lectures.map((lecture, i) => {
+        <div className="col-xs-12 text-center">
+          {this.state.lectures.map((lecture)=>{
             return (
               <div
-                className="btn btn-sm btn-normal"
-                onClick={this.onLectureStart.bind(this)}
-                key={i}>
+                className="btn btn-sm btn-normal text-center"
+                onClick={this.onLectureStart.bind(this)}>
                 {lecture}
               </div>
             )
