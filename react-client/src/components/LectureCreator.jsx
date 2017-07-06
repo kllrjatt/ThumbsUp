@@ -21,34 +21,14 @@ class LectureCreator extends React.Component {
     };
   }
 
-  handleChange(event) {
-    this.setState({
-      name: event.target.value
-    });
-  }
+  // handleChange(event) {
+  //   this.setState({
+  //     name: event.target.value
+  //   });
+  // }
 
   onLectureSave() {
-
-    // 1. Save the lecture to DB
-    // 2a. Remove input box
-    // 2b. Add button that asks if you would like to add multiple choice question
     this.setState({ showInput: false, showAskForMCQ: true });
-    // 3. if yes, display title form
-    // 4. reset to create new lecture field 
-
-
-
-    // axios({
-    //   method: 'post',
-    //   url: '/lecture',
-    //   params: {
-    //     name: this.state.name
-    //   }
-    // }).then((response) => {
-    //   this.props.startLecture(response.data.lectureId);
-    // }).catch((error) => {
-    //   console.log(error);
-    // })
   }
 
   onMCQAdd() {
@@ -56,12 +36,11 @@ class LectureCreator extends React.Component {
   }
 
   onQuestionSave(arg1) {
-    //save the questions to the database
-    //AND will hide the questions element, and show the confirm question
     this.setState({ showMCQForm: false, showAddAnotherMCQ: true })
   }
 
   handleChange(form, event) {
+    // console.log(event)
     event.persist()
     if (form === 'questionName') {
       this.setState({ questionName: event.target.value });
@@ -73,6 +52,7 @@ class LectureCreator extends React.Component {
         return newState;
       })
     }
+    console.log(this.state)
   }
 
   render() {
