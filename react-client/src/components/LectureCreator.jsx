@@ -13,26 +13,26 @@ class LectureCreator extends React.Component {
       showAddAnotherMCQ: false,
       questionName: '',
       questions: {
-        '1': '', 
-        '2': '', 
+        '1': '',
+        '2': '',
         '3': '',
         '4': ''
       }
     };
   }
 
-  handleChange (event) {
+  handleChange(event) {
     this.setState({
       name: event.target.value
     });
   }
 
-  onLectureSave () {
+  onLectureSave() {
 
     // 1. Save the lecture to DB
     // 2a. Remove input box
     // 2b. Add button that asks if you would like to add multiple choice question
-    this.setState({showInput: false, showAskForMCQ: true});
+    this.setState({ showInput: false, showAskForMCQ: true });
     // 3. if yes, display title form
     // 4. reset to create new lecture field 
 
@@ -51,23 +51,23 @@ class LectureCreator extends React.Component {
     // })
   }
 
-  onMCQAdd () {
-    this.setState({showMCQForm: true, showAskForMCQ: false});
+  onMCQAdd() {
+    this.setState({ showMCQForm: true, showAskForMCQ: false });
   }
 
-  onQuestionSave (arg1) {
+  onQuestionSave(arg1) {
     //save the questions to the database
     //AND will hide the questions element, and show the confirm question
-    this.setState({showMCQForm: false, showAddAnotherMCQ: true})
+    this.setState({ showMCQForm: false, showAddAnotherMCQ: true })
   }
 
-  handleChange (form, event) {
+  handleChange(form, event) {
     event.persist()
-    if(form === 'questionName') {
-      this.setState({questionName: event.target.value});
+    if (form === 'questionName') {
+      this.setState({ questionName: event.target.value });
     }
     else {
-      this.setState(()=>{
+      this.setState(() => {
         const newState = this.state;
         newState.questions[form] = event.target.value;
         return newState;
@@ -75,36 +75,38 @@ class LectureCreator extends React.Component {
     }
   }
 
-  render () {
+  render() {
     return (
       <div>
         <div>
-        CREATE NEW LECTURE
+          CREATE NEW LECTURE
         {
-          this.state.showInput === true 
-          ? <input
-            type="text"
-            className="form-control"
-            value={this.state.name}
-            placeholder="Enter lecture name"
-            onChange={this.handleChange.bind(this)}
-            />
-          : this.state.showAskForMCQ === true 
-          ? <div
-            className="btn btn-sm btn-success"
-            onClick={this.onMCQAdd.bind(this)}>
-            Add an MCQ
+            this.state.showInput === true
+              ? <input
+                type="text"
+                className="form-control"
+                value={this.state.name}
+                placeholder="Enter lecture name"
+                onChange={this.handleChange.bind(this)}
+              />
+              : this.state.showAskForMCQ === true
+                ? <div
+                  className="btn btn-sm btn-success"
+                  onClick={this.onMCQAdd.bind(this)}>
+                  Add an MCQ
             </div>
-          : this.state.showMCQForm === true 
-          ? <div>
-              <MCQForm questions = {this.state.questions} onQuestionSave = {this.onQuestionSave.bind(this)} handleChange = {this.handleChange.bind(this)}/>
+                : this.state.showMCQForm === true
+                  ? <div>
+                    <MCQForm questions={this.state.questions}
+                      onQuestionSave={this.onQuestionSave.bind(this)}
+                      handleChange={this.handleChange.bind(this)} />
+                  </div>
+                  : this.state.showAddAnotherMCQ === true
+                    ? <div>
+                      this is where we will list the existing MCQ forms and ask to add another
             </div>
-          : this.state.showAddAnotherMCQ === true
-          ? <div>
-              this is where we will list the existing MCQ forms and ask to add another
-            </div>
-          : <div></div>
-        }
+                    : <div></div>
+          }
         </div>
         <div className="col-xs-3 text-center">
           <div

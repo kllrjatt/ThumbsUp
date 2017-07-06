@@ -5,49 +5,50 @@ class LectureStarter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-    	name: '',
+      name: '',
       lectures: ['The keyword this', 'Execution Contexts']
     };
   }
 
-  handleChange (event) {
-  	this.setState({
-  		name: event.target.value 
-  	});
+  handleChange(event) {
+    this.setState({
+      name: event.target.value
+    });
   }
 
-  onLectureStart () {
+  onLectureStart() {
     axios({
-	    method: 'post',
-	    url: '/lecture',
-	    params: {
-	      name: this.state.name
-	    }
-	  }).then((response) => {
-  		this.props.startLecture(response.data.lectureId);
-	  }).catch((error) => {
-	  	console.log(error);
-	  })
+      method: 'post',
+      url: '/lecture',
+      params: {
+        name: this.state.name
+      }
+    }).then((response) => {
+      this.props.startLecture(response.data.lectureId);
+    }).catch((error) => {
+      console.log(error);
+    })
   }
 
-	render () {
-  	return (
+  render() {
+    return (
       <div>
         START AN EXISTING LECTURE
         <div className="col-xs-3 text-center">
-          {this.state.lectures.map((lecture)=>{
+          {this.state.lectures.map((lecture, i) => {
             return (
               <div
                 className="btn btn-sm btn-normal"
-                onClick={this.onLectureStart.bind(this)}>
+                onClick={this.onLectureStart.bind(this)}
+                key={i}>
                 {lecture}
               </div>
-              )
+            )
           })}
         </div>
       </div>
-  	)
-	}
+    )
+  }
 }
 
 export default LectureStarter
