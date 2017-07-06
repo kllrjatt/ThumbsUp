@@ -18,7 +18,7 @@ class LectureCreator extends React.Component {
         '3': '',
         '4': ''
       }
-    };
+    }
   }
 
 
