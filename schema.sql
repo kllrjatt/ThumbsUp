@@ -1,13 +1,19 @@
-DROP DATABASE IF EXISTS thumbscheck;
+-- DROP DATABASE IF EXISTS thumbscheck;
 
-CREATE DATABASE IF NOT EXISTS thumbscheck;
+-- CREATE DATABASE IF NOT EXISTS thumbscheck;
 
-USE thumbscheck;
+-- USE thumbscheck;
 
--- DROP TABLE users;
--- DROP TABLE thumbs;
--- DROP TABLE questions;
--- DROP TABLE lectures;
+/*  Execute this file from the command line by typing:
+ *    mysql -u root < schema.sql
+ *  to create the database and the tables.
+ */
+
+
+DROP TABLE users;
+DROP TABLE thumbs;
+DROP TABLE questions;
+DROP TABLE lectures;
 
 CREATE TABLE users (
   id INT NOT NULL AUTO_INCREMENT,
@@ -52,31 +58,8 @@ CREATE TABLE lectures (
   PRIMARY KEY (ID)
 );
 
-/*
- *
- */
+
 INSERT INTO users (first_name, last_name, gmail, user_type) VALUES ("Nick", "Akey", "nicktheflanders@gmail.com", "INSTRUCTOR");
 INSERT INTO users (first_name, last_name, gmail, user_type) VALUES ("Karina", "Dalca", "karinadalca@gmail.com", "INSTRUCTOR");
 INSERT INTO users (first_name, last_name, gmail, user_type) VALUES ("Gunpreet", "Singh", "gunpreetskhosa@gmail.com", "INSTRUCTOR");
 INSERT INTO users (first_name, last_name, gmail, user_type) VALUES ("Jake", "Gober", "jgober96@gmail.com", "INSTRUCTOR");
-
--- INSERT INTO user
-
-
-/*  Execute this file from the command line by typing:
- *    mysql -u root < schema.sql
- *  to create the database and the tables.
- */
-
- /*
-  *  Thumb values will be quantified between 1 and 5
-  *  and averages will hold values between 1 and 5 as well
-  *
-  */
-
-
-/*
- *
- * CLEARDB_DATABASE_URL
- * mysql://be6789ba34707e:02c8f71e@us-cdbr-iron-east-03.cleardb.net/heroku_57eb1e9aa24d7a7?reconnect=true
- */
