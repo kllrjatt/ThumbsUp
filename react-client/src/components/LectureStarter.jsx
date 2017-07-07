@@ -34,8 +34,8 @@ class LectureStarter extends React.Component {
     return (
       <div className="text-center">
         START AN EXISTING LECTURE
-        <div className="col-xs-12 text-center">
-          {this.state.lectures.map((lecture, i)=>{
+        <div className="col-xs-12 text-center top-space">
+          {this.state.lectures.map((lecture, i) => {
             return (
               <div
                 className="btn btn-sm btn-normal text-center"
