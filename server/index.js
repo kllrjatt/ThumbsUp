@@ -179,3 +179,4 @@ class Student {
     this.thumbValue = null;
   }
 }
+

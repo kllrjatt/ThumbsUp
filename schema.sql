@@ -1,8 +1,8 @@
--- DROP DATABASE IF EXISTS thumbscheck;
+DROP DATABASE IF EXISTS thumbscheck;
 
--- CREATE DATABASE IF NOT EXISTS thumbscheck;
+CREATE DATABASE IF NOT EXISTS thumbscheck;
 
--- USE thumbscheck;
+USE thumbscheck;
 
 /*  Execute this file from the command line by typing:
  *    mysql -u root < schema.sql
@@ -10,10 +10,10 @@
  */
 
 
-DROP TABLE users;
-DROP TABLE thumbs;
-DROP TABLE questions;
-DROP TABLE lectures;
+-- DROP TABLE users;
+-- DROP TABLE thumbs;
+-- DROP TABLE questions;
+-- DROP TABLE lectures;
 
 CREATE TABLE users (
   id INT NOT NULL AUTO_INCREMENT,
