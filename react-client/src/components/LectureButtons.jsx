@@ -50,10 +50,11 @@ class LectureButtons extends React.Component {
 					</div>
         </div>
         <div className="col-xs-12 text-center">
-          {this.props.questions.map((el) => {
+          {this.props.questions.map((el, i) => {
             return (
               <div
                 className="btn question-option"
+                key={i}
                 onClick={this.onMultipleChoiceQ.bind(this)}>
                 Ask: {el.title}
               </div>
