@@ -150,7 +150,7 @@ exports.asyncTimeout = function (time, callback) {
 // add question to the data base 
 exports.createQuestion = function (lectureId, question) {
   return new Promise((resolve, reject) => {
-    pool.query(`INSERT INTO question (questionName) VALUES ("${question}")`, (err, results) => {
+    pool.query(`INSERT INTO questions (lectureId, questionName) VALUES ("${lectureId}", "${question}")`, (err, results) => {
       if (err) {
         console.log(err);
       } else {
@@ -189,4 +189,16 @@ exports.getQuestions = function (lectureId) {
   });
 };
 
-//
+// pull all answers for questionId 
+
+exports.getAnswers = function (questionId) {
+  return new Promise((resolve, reject) => {
+    pool.query(`select * from answers where answers.questionId = "${questionId}"`, (err, results) => {
+      if (err) {
+        console.log(err);
+      } else {
+        resolve(results);
+      }
+    });
+  });
+};
