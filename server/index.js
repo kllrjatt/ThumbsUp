@@ -186,7 +186,7 @@ app.post('/questions', (req, res) => {
   var question = req.body.question;
   var lectureId = req.body.lectureId;
 
-  var result = db.createQuestion(lectureId, question);
+  db.createQuestion(lectureId, question);
 
   res.status(200);
   res.end();
