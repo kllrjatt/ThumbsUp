@@ -61,6 +61,18 @@
   margin-top: 3vh !important;
 }
 
+.question-option {
+  color: white;
+  font-size: 65% !important;
+  background-color: cornflowerblue !important;
+  border-radius: 12px !important;
+  width: 29vw !important;
+  margin-left: 3px !important;
+  margin-right: 3px !important;
+  margin-top: 3vh !important;
+  margin-top: 3vh !important;
+}
+
 .btn-normal {
   background-color: cornflowerblue !important;
   color: white !important;

@@ -41,29 +41,33 @@ class LectureButtons extends React.Component {
 
   render() {
     return (
-			<div className="row">
-				<div className="col-xs-12 text-center">
-					<div
-						className="btn btn-lg btn-success"
-						onClick={this.onThumbsCheck.bind(this)}>
-						Check Thumbs
+      <div>
+        <div className="col-xs-12 text-center">
+          <div
+            className="btn btn-lg btn-success"
+            onClick={this.onThumbsCheck.bind(this)}>
+            Check Thumbs
 					</div>
-				</div>
-				<div className="col-xs-12 text-center">
-					<div
-						className="btn btn-lg btn-success"
-						onClick={this.onMultipleChoiceQ.bind(this)}>
-						Multiple Choice Question
+        </div>
+        <div className="col-xs-12 text-center">
+          {this.props.questions.map((el) => {
+            return (
+              <div
+                className="btn question-option"
+                onClick={this.onMultipleChoiceQ.bind(this)}>
+                Ask: {el.title}
+              </div>
+            );
+          })}
+        </div>
+        <div className="col-xs-12 text-center">
+          <div
+            className="btn btn-lg btn-danger"
+            onClick={this.props.endLecture}>
+            End Lecture
 					</div>
-				</div>
-				<div className="col-xs-12 text-center">
-					<div
-						className="btn btn-lg btn-danger"
-						onClick={this.props.endLecture}>
-						End Lecture
-					</div>
-				</div>
-			</div>
+        </div>
+      </div>
     );
   }
 
