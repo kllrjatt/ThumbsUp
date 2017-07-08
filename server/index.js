@@ -237,15 +237,15 @@ class Student {
 app.post('/questionsAnswers', (req, res) => {
   const questionObject = JSON.parse(req.query.options);
   return db.createNewQuestion(questionObject.lectureID, questionObject.question, questionObject.answer1, questionObject.answer2, questionObject.answer3, questionObject.answer4)
-    .then((dbres) => {
-      console.log('this is the database res ', dbres);
-      res.status(200)
-        .send(dbres)
-        .end();
-    })
-    .catch((err) => {
-      console.log('this is err! ', err);
-    });
+  .then((dbres)=>{
+    console.log('this is the database res ', dbres)
+    res.status(200)
+    .send(dbres)
+    .end();
+  })
+  .catch((err)=>{
+    console.log('this is err! ', err);
+  })
 });
 
 // get questions 
@@ -262,8 +262,8 @@ app.get('/lectures', (req, res) => {
   return db.getLectures()
     .then(results => {
       res
-        .status(200)
-        .send(results);
+      .status(200)
+      .send(results);
     });
 });
 

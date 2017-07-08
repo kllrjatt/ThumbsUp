@@ -68,22 +68,22 @@ class Instructor extends React.Component {
     });
   }
 
-  componentDidMount() {
+  componentDidMount(){
     this.getLecturesFromDB();
   }
 
-  setLectureId(id) {
-    this.setState({ lectureId: id });
+  setLectureId(id){
+    this.setState({lectureId: id})
   }
 
-  getLecturesFromDB() {
+  getLecturesFromDB(){
     axios({
       method: 'get',
       url: '/lectures',
     }).then((response) => {
-      this.setState({ lectures: response.data }, () => {
-        console.log('the state has updated! ', this.state);
-      });
+      this.setState({lectures: response.data}, ()=>{
+        console.log('the state has updated! ', this.state)
+      })
     }).catch((error) => {
       console.log(error);
     });
@@ -97,8 +97,8 @@ class Instructor extends React.Component {
           ? <div>
             <div className="col-xs-6 text-center">
               <LectureCreator
-                setLectureId={this.setLectureId.bind(this)}
-                getLecturesFromDB={this.getLecturesFromDB.bind(this)}
+              setLectureId = {this.setLectureId.bind(this)}
+              getLecturesFromDB = {this.getLecturesFromDB.bind(this)}
               />
             </div>
             <div className="col-xs-6 text-center">
