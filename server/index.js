@@ -182,7 +182,25 @@ class Student {
 
 // post question and answers 
 app.post('/questionAnswers', (req, res) => {
-  var responseObject = req.body.options;
+  var lectureID = req.body.options.lectureID;
+  var question = req.body.options.question;
+
+  var shortBod = request.body.options;
+
+  var options = [shortBod.answer1, shortBod.answer2, shortBod.answer3, shortBod.answer4];
+
+  // {
+  //   lectureID: 14
+  //   question: “what school does Jake go to?”
+  //   answer1: “Hack Reactor”
+  //   answer2: “Harvard”
+  //   answer4: “The School of Hard Knocks”
+  //   answer5: “High School”
+  // }
+
+  db.createQuestion(lectureID, question);
+  
+  db.addAnswers(questionID, options);
 
 
   res.status(200);

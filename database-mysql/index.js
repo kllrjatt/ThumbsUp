@@ -47,8 +47,6 @@ exports.createNewQuestion = function (lectureId) {
   });
 };
 
-/* Section
-*/
 
 exports.addAvgThumbForQuestion = function (questionId, avgThumbValue) {
   return new Promise((resolve, reject) => {
@@ -126,13 +124,6 @@ exports.addStudent = function (first, last, gmail) {
     });
   });
 };
-
-// test
-
-/*
-=======
-/* Section
-*/
 
 exports.asyncTimeout = function (time, callback) {
   return new Promise((resolve, reject) => {
