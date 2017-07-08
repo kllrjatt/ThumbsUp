@@ -35,7 +35,8 @@ class LectureCreator extends React.Component {
         }
       })
         .then((res) => {
-          //this.setState({lectureID: res.lectureID});
+          this.props.setLectureId(res.data.lectureId);
+          this.props.getLecturesFromDB();
         })
         .catch((error) => {
           console.log(error);
@@ -51,7 +52,6 @@ class LectureCreator extends React.Component {
   }
 
   onQuestionSave() {
-    console.log('this is the state on post ', this.state);
     axios({
       method: 'post',
       url: '/questionsAnswers',
@@ -67,6 +67,7 @@ class LectureCreator extends React.Component {
       }
     })
       .then((res) => {
+        //res.data.insertId is the question ID if we ever need it!
       })
       .catch((error) => {
         console.log(error);
