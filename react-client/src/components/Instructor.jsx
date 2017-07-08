@@ -90,7 +90,7 @@ class Instructor extends React.Component {
               endLecture={this.props.endLecture}
               changeQuestion={this.changeQuestion.bind(this)}
             />
-            : this.props.questionType !== 'thumbs'
+            : this.props.questionType === 'thumbs'
               ? <ThumbsChecker
                 startLecture={this.props.startLecture}
                 lectureId={this.props.lectureId}

@@ -83,19 +83,6 @@ exports.getAvgThumbsForQuestionsInLecture = function (lectureId) {
   });
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 exports.addMCQAnswerForQuestion = function(questionId, MCQAnswers) {
   return new Promise ((resolve, reject) => {
     console.log(questionId,MCQAnswers )
@@ -268,7 +255,6 @@ exports.getAnswers = function (questionId) {
       }
     });
   });
-<<<<<<< HEAD
 };
 
 // get the question
@@ -282,6 +268,4 @@ exports.getQuestion = function (questionId) {
       }
     });
   });
-=======
->>>>>>> ae0b8c495ac8d78de8e426f3eee5f4956ca4c7a0
 };

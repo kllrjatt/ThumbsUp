@@ -15,7 +15,7 @@ class MCQChecker extends React.Component {
   render() {
     return (
     	<div>
-    	     <div> Submitted Answers: 
+    	     <div>
 			{this.state.numResponses === 0 && <h3>{this.props.MCQAnswer}</h3>} <br/>
 			</div>
 
