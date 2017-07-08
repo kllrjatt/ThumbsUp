@@ -110,7 +110,7 @@ exports.addMCQAnswerForLecture = function (lectureId, MCQAnswers) {
 
 exports.getMCQAnswersForQuestionsInLecture = function (lectureId) {
   return new Promise((resolve, reject) => {
-    pool.query(`SELECT MCQ_responses FROM questions WHERE lecture_id=${lectureId}`, (err, results) => {
+    pool.query(`SELECT MCQ_responses FROM questions WHERE lectureID=${lectureId}`, (err, results) => {
       if (err) {
         console.log(err);
       } else {

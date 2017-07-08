@@ -90,7 +90,7 @@ app.post('/checkthumbs', (req, res) => {
 
 app.post('/mcq', (req, res) => {
   //console.log('Karel Luwena')
-  let lecture = req.query.lecture_id;
+  let lecture = req.query.lectureID;
   db.createNewQuestion(lecture)
     //console.log('server-side mcq side')
     .then(results => {
