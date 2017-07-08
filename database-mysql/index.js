@@ -202,3 +202,16 @@ exports.getAnswers = function (questionId) {
     });
   });
 };
+
+// get the question
+exports.getQuestion = function (questionId) {
+  return new Promise((resolve, reject) => {
+    pool.query(`select * from questions where questionId = "${questionId}"`, (err, results) => {
+      if (err) {
+        console.log(err);
+      } else {
+        resolve(results);
+      }
+    });
+  });
+};

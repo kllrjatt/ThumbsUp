@@ -180,24 +180,10 @@ class Student {
   }
 }
 
-// post question 
+// post question and answers 
+app.post('/questionAnswers', (req, res) => {
+  var responseObject = req.body.options;
 
-app.post('/questions', (req, res) => {
-  var question = req.body.question;
-  var lectureId = req.body.lectureId;
-
-  db.createQuestion(lectureId, question);
-
-  res.status(200);
-  res.end();
-});
-
-// post answers 
-app.post('/answers', (req, res) => {
-  var options = req.body.options;
-  var questionsId = req.body.questionId;
-
-  db.createQuestion(questionsId, options);
 
   res.status(200);
   res.end();
